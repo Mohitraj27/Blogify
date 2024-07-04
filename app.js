@@ -12,16 +12,9 @@ const Blog = require('./models/blog');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-const options = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 10000,
-    socketTimeoutMS: 45000,
-  };
-
 // mongodb://localhost:27017/blogify
 mongoose
-    .connect(process.env.MONGO_URL, options)
+    .connect(process.env.MONGO_URL)
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.error("MongoDB Connection Error:", err));
 
